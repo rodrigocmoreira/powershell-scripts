@@ -1,0 +1,25 @@
+
+{
+    "enviroments": [
+        {
+            "name": "DEVPATH",
+            "value": "C:\\workspaces\\HRE_RPD\\HRCB.RPD\\DEV\\NET"
+        },
+        {
+            "name": "SPRINTPATH",
+            "value": "C:\\workspaces\\HRE_RPD\\HRCB.RPD\\MAIN\\NET"
+        },
+        {
+            "name": "FATPATH",
+            "value": "C:\\workspaces\\HRE_RPD\\HRCB.RPD\\RELEASE\\NET"
+        },
+        {
+            "name": "VS2017PATH",
+            "value": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Professional\\Common7\\Tools"
+        },
+        {
+            "name": "BusinessImplementationUnitTests",
+            "value": "C:\\Workspaces\\HRE_RPD\\HRCB.RPD\\DEV\\NET\\Test\\Business\\Raet.RPD.Business.Implementation.UnitTests\\bin\\Debug\\RPD.Business.Implementation.UnitTests.dll"
+        }
+    ]
+}
