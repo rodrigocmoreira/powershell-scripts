@@ -14,7 +14,7 @@ function GOTOFAT {set-location $Env:FATPATH}
 Write-Host "`nLocal dev enviroments loaded, available functions (GOTODEV,GOTOSPRINT, GOTOFAT)." -ForegroundColor Yellow
 Write-Host "`nNow Loading Visual Studios enviroment variables..." -ForegroundColor Yellow
 
-Push-Location "$Env:FATPATH"
+push-location $Env:VS2017PATH
 cmd /c "VsDevCmd.bat&set" |
 ForEach-Object {
   if ($_ -match "=") {
