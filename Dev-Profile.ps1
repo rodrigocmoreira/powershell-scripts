@@ -1,25 +1,25 @@
 
 GOTOSCRIPT
 $enviromentObj = Get-Content -Raw '.\enviroment-vars.json' | Out-String | ConvertFrom-Json
-popd
+Pop-Location
 $enviromentObj.enviroments | 
-foreach { 
+ForEach-Object { 
   $currentEnv = $_; 
-  [Environment]::SetEnvironmentVariable("$currentEnv.name", "$currentEnv.value", "User")
+  [Environment]::SetEnvironmentVariable($currentEnv.name, $currentEnv.value, "User")
 }
-
 function GOTODEV {set-location $Env:DEVPATH}
 function GOTOSPRINT {set-location $Env:SPRINTPATH}
 function GOTOFAT {set-location $Env:FATPATH}
 
 Write-Host "`nLocal dev enviroments loaded, available functions (GOTODEV,GOTOSPRINT, GOTOFAT)." -ForegroundColor Yellow
+Write-Host "`nNow Loading Visual Studios enviroment variables..." -ForegroundColor Yellow
 
-pushd "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools"
+Push-Location "$Env:FATPATH"
 cmd /c "VsDevCmd.bat&set" |
-foreach {
+ForEach-Object {
   if ($_ -match "=") {
     $v = $_.split("="); set-item -force -path "ENV:\$($v[0])"  -value "$($v[1])"
   }
 }
-popd
+Pop-Location
 Write-Host "`nVisual Studio 2017 Command Prompt variables set." -ForegroundColor Yellow
